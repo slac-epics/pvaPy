@@ -51,7 +51,7 @@ else
 	autoreconf --install $(AC_DIR)
 
   distclean:
-	$(RM) setup.sh setup.csh $(RELEASE_LOCAL) $(CONFIG_SITE_LOCAL)
+	$(RM) setup.sh setup.csh
 	$(RMDIR) lib src/pvaccess/O.* $(AC_DIR)/autom4te.cache
 	$(RM) $(AC_DIR)/aclocal.m4 $(AC_DIR)/configure $(AC_DIR)/config.log
 	$(RM) $(AC_DIR)/config.status $(AC_DIR)/install-sh $(AC_DIR)/missing
