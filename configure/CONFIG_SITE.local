@@ -3,11 +3,7 @@
 # Set this when you only want to compile this application
 #   for a subset of the cross-compiled target architectures
 #   that Base is built for.
-#CROSS_COMPILER_TARGET_ARCHS := $(filter-out linuxRT-i686,       $(CROSS_COMPILER_TARGET_ARCHS))
-#CROSS_COMPILER_TARGET_ARCHS := $(filter-out linuxRT_glibc-i686, $(CROSS_COMPILER_TARGET_ARCHS))
-#CROSS_COMPILER_TARGET_ARCHS := $(filter-out linuxRT-arm_zynq,   $(CROSS_COMPILER_TARGET_ARCHS))
-#CROSS_COMPILER_TARGET_ARCHS := $(filter-out vxWorks%,           $(CROSS_COMPILER_TARGET_ARCHS))
-#CROSS_COMPILER_TARGET_ARCHS := $(filter-out RTEMS%,             $(CROSS_COMPILER_TARGET_ARCHS))
+CROSS_COMPILER_TARGET_ARCHS := $(filter-out linux-x86,          $(CROSS_COMPILER_TARGET_ARCHS))
 
 # Use these only if Boost is not in a system location
 HAVE_BOOST_NUM_PY=0
@@ -24,7 +20,8 @@ USR_SYS_LIBS += boost_python
 PYTHON_DIR = $(PSPKG_ROOT)/release/python/2.7.3/$(EPICS_HOST_ARCH)
 PYTHON_VERSION = 2.7
 PVA_PY_CPPFLAGS += -I$(PYTHON_DIR)/include/python$(PYTHON_VERSION)
-PVA_PY_SYS_LIBS += python$(PYTHON_VERSION)
+PVA_PY_LDFLAGS  += -L$(PYTHON_DIR)/lib -Wl,-rpath,$(PYTHON_DIR)/lib
+USR_SYS_LIBS += python$(PYTHON_VERSION)
 
 # The version number of the pvAccess API
 PVA_API_VERSION = 450
