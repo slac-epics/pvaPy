@@ -2,7 +2,8 @@ QtC-*
 bin/
 lib/
 include/
-config.log
+*.log
+RELEASE_SITE
 configure/*.local
 **/O.*
 tools/autoconf/install-sh
