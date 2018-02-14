@@ -131,6 +131,10 @@ AC_DEFUN([AX_EPICS_BASE],
     # TODO: replace these hardcoded settings with the correct one from the EPICS configure directory
     if test "$epics_host_arch_main" = "linux" ; then
         EPICS_CMPLR_CLASS=gcc
+    elif test "$epics_host_arch_main" = "rhel6" ; then
+        EPICS_CMPLR_CLASS=gcc
+    elif test "$epics_host_arch_main" = "rhel7" ; then
+        EPICS_CMPLR_CLASS=gcc
     elif test "$epics_host_arch_main" = "darwin" ; then
         EPICS_CMPLR_CLASS=clang
     fi
